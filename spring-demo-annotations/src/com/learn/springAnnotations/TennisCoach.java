@@ -1,16 +1,33 @@
 package com.learn.springAnnotations;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("theTennisCoach")
+//@Scope("prototype") //bean Scope is singleton by default
 public class TennisCoach implements Coach {
 
 	//Field injection using Annotation
 	@Autowired
 	@Qualifier("randomFortunrService")
 	private FortuneService fortuneService;
+	
+	//define an init method:
+	@PostConstruct
+	public void doMyStartupStuff() {
+		System.out.println("Do my startUP stuff");
+	}
+	
+	//define destroy method
+	@PreDestroy
+	public void doMyDestructiveMehtod() {
+		System.out.println("Destructive method call");
+	}
 	
 	/*
 	//Constructor injection using Annotations
