@@ -6,7 +6,7 @@
 
 <body>
 	<form action="PerformAllCaps" method="GET">
-		<input type = "text" name = "studentName" placeholder = "Your Name" />
+		<input type = "text" name = "studentName" placeholder = " Your Name" />
 		<input type = "submit" />
 	</form>
 </body>
